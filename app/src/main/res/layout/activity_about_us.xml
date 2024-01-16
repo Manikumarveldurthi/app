@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AboutUs">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20dp"
+            android:textColor="@color/black"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:textAlignment="center"
+            android:padding="5dp"
+            android:background="@color/material_dynamic_primary90"
+            android:text="Contact Us:"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            >
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.08"
+                android:src="@drawable/youtube"
+                android:id="@+id/imgYoutube"/>
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight=".08"
+                android:id="@+id/imgInstagram"
+                android:src="@drawable/instagram"/>
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight=".08"
+                android:id="@+id/imgTelegram"
+                android:src="@drawable/telegram"/>
+
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20dp"
+            android:textColor="@color/black"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:textAlignment="center"
+            android:padding="5dp"
+            android:text="For Business Enquiry:"
+            android:background="@color/material_dynamic_primary90"/>
+        <TextView
+            android:id="@+id/txtEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20dp"
+            android:textColor="#003B55"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:textAlignment="center"
+            android:textStyle="bold|italic"
+            android:text="manikumar0459@gmail.com"
+            />
+     <LinearLayout
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:orientation="horizontal"
+         android:background="#28FFDF"
+         android:layout_marginTop="10dp"
+         >
+         <ImageView
+             android:layout_width="0dp"
+             android:layout_height="100dp"
+             android:layout_weight=".08"
+             android:paddingStart="10dp"
+             android:layout_gravity="center"
+             android:src="@drawable/logo"/>
+         <LinearLayout
+             android:layout_width="0dp"
+             android:layout_height="match_parent"
+             android:layout_weight=".3"
+             android:orientation="vertical"
+             >
+             <TextView
+
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+                 android:textSize="18dp"
+                 android:textColor="@color/black"
+                 android:gravity="center"
+                 android:textAlignment="center"
+                 android:textStyle="italic"
+                 android:paddingTop="10dp"
+                 android:layout_marginEnd="5dp"
+                 android:text="Developed By"
+                />
+             <TextView
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+                 android:textSize="32dp"
+                 android:textColor="@color/black"
+                 android:gravity="center"
+                 android:textAlignment="center"
+                 android:textStyle="bold"
+                 android:paddingTop="5dp"
+                 android:layout_marginEnd="5dp"
+                 android:text="BTECH MATES"
+                 />
+             </LinearLayout>
+         </LinearLayout>
+     </LinearLayout>
+
+
+
+</ScrollView>
