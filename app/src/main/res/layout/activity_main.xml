@@ -8,24 +8,53 @@
     android:background="@drawable/back1"
     tools:context=".MainActivity">
 
-   <TextView
+   <!-- Heading and Weather Container -->
+   <LinearLayout
+       android:id="@+id/headingWeatherContainer"
        android:layout_width="match_parent"
-       android:layout_height="80dp"
-       android:background="@drawable/waveb"
-       android:id="@+id/title_view"
-       android:textAlignment="center"
-       android:text="TRIP_PACKER"
-       android:layout_centerHorizontal="true"
-       android:textStyle="bold"
-       android:textColor="@color/design_default_color_on_secondary"
-       android:textSize="35sp"
-       />
+       android:layout_height="wrap_content"
+       android:orientation="horizontal"
+       android:gravity="center_vertical">
+
+      <!-- TRIP_PACKER Heading -->
+      <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="80dp"
+          android:background="@drawable/waveb"
+          android:id="@+id/title_view"
+          android:textAlignment="center"
+          android:text="TRIP_PACKER"
+          android:textStyle="bold"
+          android:textColor="@color/design_default_color_on_secondary"
+          android:textSize="35sp"
+          />
+
+      <!-- Weather Container -->
+      <FrameLayout
+          android:id="@+id/weatherContainer"
+          android:layout_width="wrap_content"
+          android:layout_height="80dp"
+          android:layout_marginStart="16dp"
+          android:background="@drawable/weather_background">
+
+         <!-- Weather Number TextView -->
+         <TextView
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:text="25"
+             android:textColor="@android:color/white"
+             android:textSize="24sp"
+             />
+      </FrameLayout>
+   </LinearLayout>
+
+   <!-- Recycler View Positioned Below Heading -->
    <androidx.recyclerview.widget.RecyclerView
        android:layout_width="match_parent"
        android:layout_height="match_parent"
        android:id="@+id/recyclerview"
-       android:layout_below="@id/title_view"
-
-      />
+       android:layout_below="@id/headingWeatherContainer"
+       android:layout_marginTop="16dp"
+       />
 
 </RelativeLayout>

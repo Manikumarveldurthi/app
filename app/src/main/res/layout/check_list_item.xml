@@ -8,9 +8,8 @@
     android:padding="10dp"
     android:textAlignment="center"
     android:id="@+id/linearlayout"
-    android:orientation="horizontal"
+    android:orientation="horizontal">
 
-    >
     <CheckBox
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -18,17 +17,13 @@
         android:id="@+id/checkbox"
         android:layout_gravity="center"
         android:textSize="20dp"
-        android:text="this is for test"
-        />
-    <Button
+        android:text="this is for test" />
 
+    <Button
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="0.7"
         android:id="@+id/btnDelete"
         android:layout_gravity="center"
-        android:background="@drawable/ic_baseline_delete_24"
-        />
-
-
+        android:background="@drawable/ic_baseline_delete_24" />
 </LinearLayout>

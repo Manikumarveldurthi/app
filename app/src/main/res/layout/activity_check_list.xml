@@ -40,6 +40,17 @@
             android:background="@drawable/ic_baseline_check_circle_outline_24"
             android:layout_marginEnd="8dp"
             />
+        <Button
+            android:id="@+id/btnVoiceRecognition"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.7"
+            android:background="@drawable/ic_baseline_keyboard_voice_24"
+            android:layout_marginEnd="8dp"
+            />
+
+
+
 
     </LinearLayout>
 

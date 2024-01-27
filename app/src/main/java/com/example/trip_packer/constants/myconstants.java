@@ -40,4 +40,6 @@ public class myconstants {
     public static final String MY_SELECTIONS_CAMEL_CASE = "My Selections";
 
     public static final String FIRST_TIME_CAMEL_CASE = "firstTime";
+    public static final int VOICE_RECOGNITION_REQUEST_CODE = 1234; // Use any integer value you prefer
+
 }
