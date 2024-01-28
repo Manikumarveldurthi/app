@@ -17,9 +17,15 @@
         android:theme="@style/Theme.TRIP_PACKER"
         tools:targetApi="31">
         <activity
+            android:name=".WeatherService"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".SplashScreen"
             android:exported="true">
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -30,8 +36,10 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
+
         <service android:name=".AboutUsService" />
-        <service android:name=".ShareService"/>
+        <service android:name=".ShareService" />
+
         <activity
             android:name=".AboutUs"
             android:exported="false">
@@ -53,7 +61,6 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
-
     </application>
 
 </manifest>

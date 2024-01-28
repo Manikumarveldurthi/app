@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -20,6 +21,7 @@ import com.example.trip_packer.Database.RoomDB;
 import com.example.trip_packer.Models.Items;
 import com.example.trip_packer.R;
 import com.example.trip_packer.constants.myconstants;
+import com.example.trip_packer.WeatherService;
 
 import java.util.List;
 
@@ -32,9 +34,8 @@ public class CheckListAdapter extends RecyclerView.Adapter<ChecklistViewHolder> 
     private OnItemAddedListener onItemAddedListener;
     private ChecklistViewHolder holder;
     private int position;
-    public CheckListAdapter()
-    {
 
+    public CheckListAdapter() {
     }
 
     public CheckListAdapter(Context context, List<Items> itemsList, RoomDB database, String show) {
@@ -73,24 +74,30 @@ public class CheckListAdapter extends RecyclerView.Adapter<ChecklistViewHolder> 
         holder.checkBox.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Boolean check = holder.checkBox.isChecked();
-                database.mainDao().checkuncheck(itemsList.get(position).getID(), check);
-                if (myconstants.FALSE_STRING.equals(show)) {
-                    itemsList = database.mainDao().getAllselected(true);
-                    notifyDataSetChanged();
+                if (myconstants.WEATHER_CAMEL_CASE.equals(itemsList.get(position).getItemname())) {
+                    // Handle the click for the "WEATHER" item
+                    openWeatherService();
                 } else {
-                    itemsList.get(position).setChecked(check);
-                    notifyDataSetChanged();
-                    Toast toastmessage = null;
-                    if (toastmessage != null) {
-                        toastmessage.cancel();
-                    }
-                    if (itemsList.get(position).getChecked()) {
-                        toastmessage = Toast.makeText(context, "(" + holder.checkBox.getText() + "packed", Toast.LENGTH_SHORT);
+                    // Handle other item clicks
+                    Boolean check = holder.checkBox.isChecked();
+                    database.mainDao().checkuncheck(itemsList.get(position).getID(), check);
+                    if (myconstants.FALSE_STRING.equals(show)) {
+                        itemsList = database.mainDao().getAllselected(true);
+                        notifyDataSetChanged();
                     } else {
-                        toastmessage = Toast.makeText(context, "(" + holder.checkBox.getText() + "un-packed", Toast.LENGTH_SHORT);
+                        itemsList.get(position).setChecked(check);
+                        notifyDataSetChanged();
+                        Toast toastmessage = null;
+                        if (toastmessage != null) {
+                            toastmessage.cancel();
+                        }
+                        if (itemsList.get(position).getChecked()) {
+                            toastmessage = Toast.makeText(context, "(" + holder.checkBox.getText() + ") packed", Toast.LENGTH_SHORT);
+                        } else {
+                            toastmessage = Toast.makeText(context, "(" + holder.checkBox.getText() + ") un-packed", Toast.LENGTH_SHORT);
+                        }
+                        toastmessage.show();
                     }
-                    toastmessage.show();
                 }
             }
         });
@@ -131,6 +138,13 @@ public class CheckListAdapter extends RecyclerView.Adapter<ChecklistViewHolder> 
     // Getter for OnItemAddedListener
     public OnItemAddedListener getOnItemAddedListener() {
         return onItemAddedListener;
+    }
+
+    private void openWeatherService() {
+        // Create an Intent to open the WeatherService activity
+        Intent intent = new Intent(context, WeatherService.class);
+        // Start the WeatherService activity
+        context.startActivity(intent);
     }
 }
 

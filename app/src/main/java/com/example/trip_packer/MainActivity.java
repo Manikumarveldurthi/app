@@ -35,6 +35,15 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         getSupportActionBar().hide();
 
+        // Initialize FloatingActionButton
+        FloatingActionButton fabWeather = findViewById(R.id.fabWeather);
+        fabWeather.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openWeatherService();
+            }
+        });
+
         addAddTitles();
         addAllImages();
         persistAppData();
@@ -47,8 +56,6 @@ public class MainActivity extends AppCompatActivity {
         GridLayoutManager gridLayoutManager = new GridLayoutManager(this, 2, GridLayoutManager.VERTICAL, false);
         recyclerView.setLayoutManager(gridLayoutManager);
         recyclerView.setAdapter(myAdapter);
-
-
     }
 
     private void addAddTitles() {
@@ -65,6 +72,7 @@ public class MainActivity extends AppCompatActivity {
         titles.add(myconstants.NEEDS_CAMEL_CASE);
         titles.add(myconstants.MY_LIST_CAMEL_CASE);
         titles.add(myconstants.MY_SELECTIONS_CAMEL_CASE);
+
     }
 
     @Override
@@ -72,6 +80,7 @@ public class MainActivity extends AppCompatActivity {
         super.onBackPressed();
         // Add your own logic here if needed
     }
+
 
     private void persistAppData() {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
@@ -105,5 +114,13 @@ public class MainActivity extends AppCompatActivity {
         images.add(R.drawable.pi10);
         images.add(R.drawable.pi11);
         images.add(R.drawable.pi12);
+        images.add(R.drawable.weather_background);
     }
+    public void openWeatherService() {
+        Intent intent = new Intent(this, WeatherService.class);
+        startActivity(intent);
+    }
+
+
 }
+
